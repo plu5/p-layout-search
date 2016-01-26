@@ -1,0 +1,47 @@
+# date created: 2015-03-04 14-58 (blender 2.73)
+# last modified: 2015-01-26 15-19 (blender 2.76)
+
+bl_info = {
+    "name": "p/layout-search",
+    "author": "+-",
+    "version": (1, 1),
+    "blender": (2, 76, 0),
+    "description": "Adds search popups for switching layouts.",
+    "warning": "",
+    "wiki_url": "",
+    "tracker_url": "",
+    "category": "Development"}
+
+import bpy
+
+def get_layouts(self, context):
+    l = []
+    for i, screenlayout in enumerate(bpy.data.screens):
+        l.append((screenlayout.name, screenlayout.name, str(i)))
+    return l
+
+class LayoutSearch(bpy.types.Operator):
+	"""Tooltip"""
+	bl_idname = "object.layout_search"
+	bl_label = "Layout Search"
+	bl_property = "layouts_enum"
+	layouts_enum = bpy.props.EnumProperty(items=get_layouts)
+
+	def execute(self, context):
+            self.report({'INFO'}, "Screen layout: %s" % self.layouts_enum)
+            bpy.context.window.screen = bpy.data.screens[self.layouts_enum]
+            return {'FINISHED'}
+
+	def invoke(self, context, event):
+            wm = context.window_manager
+            wm.invoke_search_popup(self)
+            return {'FINISHED'}
+
+def register():
+	bpy.utils.register_class(LayoutSearch)
+
+def unregister():
+	bpy.utils.unregister_class(LayoutSearch)
+
+if __name__ == "__main__":
+	register()
