@@ -10,7 +10,7 @@ bl_info = {
     "warning": "",
     "wiki_url": "",
     "tracker_url": "",
-    "category": "Development"}
+    "category": "User Interface"}
 
 import bpy
 
@@ -22,7 +22,7 @@ def get_layouts(self, context):
 
 class LayoutSearch(bpy.types.Operator):
 	"""Tooltip"""
-	bl_idname = "object.layout_search"
+	bl_idname = "wm.layout_search"
 	bl_label = "Layout Search"
 	bl_property = "layouts_enum"
 	layouts_enum = bpy.props.EnumProperty(items=get_layouts)
