@@ -5,7 +5,7 @@ blender addon for quick switching between layouts
 
 ## Installation
 ```
-your-blender-path/blender-ver/scripts/addons/script_p-layout-search
+your-blender-path/blender-ver/scripts/addons/ui_p-layout-search
 ```
 Enable in User Preferences > Add-ons > User Interface
 Add a key binding for `wm.layout_search` (preferably under Window) and bind it to whatever you want:
