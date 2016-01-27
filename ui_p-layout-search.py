@@ -1,6 +1,3 @@
-# date created: 2015-03-04 14-58 (blender 2.73)
-# last modified: 2016-01-26 16-47 (blender 2.76)
-
 bl_info = {
     "name": "p/layout-search",
     "author": "+-",
